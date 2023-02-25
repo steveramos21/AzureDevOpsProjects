@@ -1,5 +1,23 @@
 # To run the Terraform config on localhost with the secrets:
 # terraform plan -var-file="secrets.tfvars"
+terraform {
+  required_providers {
+    azuredevops = {
+      source = "microsoft/azuredevops"
+      version = ">=0.1.0"
+    }
+  }
+}
+
+provider "azuredevops" {
+  org_service_url = "https://dev.azure.com/myazdevopscloudskills"
+  personal_access_token = var.personal_access_token
+}
+
+resource "azuredevops_project" "project" {
+  name       = "Cloudskills"
+  description        = "Project Cloudskills"
+}
 
 provider "azurerm" {
   features {}
