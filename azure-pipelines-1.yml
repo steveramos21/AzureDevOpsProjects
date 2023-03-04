@@ -1,0 +1,33 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: 'SQL-Server-Creation'
+    backendServiceArm: 'Visual Studio Enterprise Subscription – MPN(414df767-58dc-4f35-b1e3-cecc3b8772f1)'
+    backendAzureRmResourceGroupName: 'cloudskills-rg'
+    backendAzureRmStorageAccountName: 'mydatabasedevops001'
+    backendAzureRmContainerName: 'mydatabasedevops001'
+    backendAzureRmKey: 'tf/terraform.tfstate' 
+
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    workingDirectory: 'SQL-Server-Creation'
+    commandOptions: '-var="password=$(SQL_PASSWORD)" -var=ip_address=$(IP_ADDRESS)"'
+    environmentServiceNameAzureRM: 'Visual Studio Enterprise Subscription – MPN(414df767-58dc-4f35-b1e3-cecc3b8772f1)'
+
+- task: TerraformTaskV4@4
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: 'SQL-Server-Creation'
+    commandOptions: '-var="password=$(SQL_PASSWORD)" -var=ip_address=$(IP_ADDRESS)"'
+    environmentServiceNameAzureRM: 'Visual Studio Enterprise Subscription – MPN(414df767-58dc-4f35-b1e3-cecc3b8772f1)'
