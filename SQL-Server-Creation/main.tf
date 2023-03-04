@@ -4,21 +4,6 @@ provider "azurerm" {
   features {}
 }
 
-#Creates resource group
-resource "azurerm_resource_group" "devopsdatabase" {
-  name     = var.rg_name
-  location = var.location
-}
-
-resource "azurerm_storage_account" "devopsdatabase" {
-  name                     = "mycloudstorage12321"
-  resource_group_name      = azurerm_resource_group.devopsdatabase.name
-  location                 = azurerm_resource_group.devopsdatabase.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
-
-
 resource "azurerm_mysql_server" "devopsdatabase" {
   name                = var.db_name
   location            = var.location
