@@ -12,7 +12,7 @@ steps:
     workingDirectory: 'SQL-Server-Creation'
     backendServiceArm: 'Visual Studio Enterprise Subscription – MPN(1)(414df767-58dc-4f35-b1e3-cecc3b8772f1)'
     backendAzureRmResourceGroupName: 'cloudskills-rg'
-    backendAzureRmStorageAccountName: 'mycloudstorage12321'
+    backendAzureRmStorageAccountName: 'mydatabasedevops001'
     backendAzureRmContainerName: 'databasedevops'
     backendAzureRmKey: 'terraform.tfstate'  
 - task: TerraformTaskV4@4
