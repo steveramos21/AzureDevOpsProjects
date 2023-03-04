@@ -8,6 +8,9 @@
 # Secrets
 *secrets.tfvars
 
+#Azure Pipelines
+*azure-pipelines.yml
+
 *.lock.hcl*
 
 # Crash log files
@@ -25,7 +28,7 @@ override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
-*azure-pipelines.yml
+
 
 # Include override files you do wish to add to version control using negated pattern
 #
