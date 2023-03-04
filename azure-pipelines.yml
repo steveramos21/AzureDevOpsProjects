@@ -10,11 +10,12 @@ steps:
     provider: 'azurerm'
     command: 'init'
     workingDirectory: 'SQL-Server-Creation'
-    backendServiceArm: 'Visual Studio Enterprise Subscription – MPN(1)(414df767-58dc-4f35-b1e3-cecc3b8772f1)'
+    backendServiceArm: 'Visual Studio Enterprise Subscription – MPN(414df767-58dc-4f35-b1e3-cecc3b8772f1)'
     backendAzureRmResourceGroupName: 'cloudskills-rg'
     backendAzureRmStorageAccountName: 'mydatabasedevops001'
-    backendAzureRmContainerName: 'databasedevops'
-    backendAzureRmKey: 'terraform.tfstate'  
+    backendAzureRmContainerName: 'mydatabasedevops001'
+    backendAzureRmKey: 'tf/terraform.tfstate' 
+
 - task: TerraformTaskV4@4
   inputs:
     provider: 'azurerm'
