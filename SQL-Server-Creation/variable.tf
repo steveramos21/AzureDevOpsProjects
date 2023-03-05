@@ -20,8 +20,3 @@ variable "ip_address" {
   type = string
   sensitive = true
 }
-
-variable "personal_access_token" {
-  type = string
-  sensitive = true
-}

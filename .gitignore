@@ -11,6 +11,9 @@
 #Azure Pipelines
 *azure-pipelines.yml
 
+#Plans
+*sqlplan.tf
+
 *.lock.hcl*
 
 # Crash log files
