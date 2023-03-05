@@ -12,7 +12,7 @@
 *azure-pipelines.yml
 
 #Plans
-*sqlplan.tf
+sqlplan.tf
 
 *.lock.hcl*
 
